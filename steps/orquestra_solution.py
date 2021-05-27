@@ -1,5 +1,5 @@
 from qiskit import ClassicalRegister, QuantumCircuit, QuantumRegister
-from zquantum.core.circuit import Circuit
+from zquantum.core.wip import circuits
 from zquantum.core.utils import create_object
 from zquantum.core.bitstring_distribution import save_bitstring_distribution
 import yaml
@@ -19,7 +19,7 @@ def main(backend_specs):
 
     # After this point we use the power of Orquestra to use different backends!
     # Use Zapata's representation of quantum circuits
-    zap_circuit = Circuit(circuit)
+    zap_circuit = circuits.import_from_qiskit(circuit)
 
     # Build a backend from the specs we passed to the step
     if isinstance(backend_specs, str):
