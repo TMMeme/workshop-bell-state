@@ -8,7 +8,7 @@ imports:
 - name: bell-state
   type: git
   parameters:
-    repository: "git@github.com:zapatacomputing/workshop-bell-state.git"
+    repository: "git@github.com:TMMeme/workshop-bell-state.git"
     branch: "main"
 
 # List the steps in the workflow
@@ -19,7 +19,7 @@ steps:
       language: python3
       imports: [bell-state] 
       parameters:
-        file: bell-state/steps/solution.py
+        file: bell-state/steps/exercise.py
         function: main
   outputs:
   - name: results
