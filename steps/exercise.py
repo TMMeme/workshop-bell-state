@@ -6,7 +6,7 @@ def main():
     # Define registers and circuit
     q = QuantumRegister(3)
     c = ClassicalRegister(3)
-    circuit = QuantumCircuit(3, 3)
+    circuit = QuantumCircuit(q, c)
 
     # Creating GHZ Circuit
     circuit.h(0)
