@@ -1,4 +1,4 @@
-from qiskit import circuit, execute, Aer, ClassicalRegister, QuantumRegister, QuantumCircuit
+from qiskit import execute, Aer, ClassicalRegister, QuantumRegister, QuantumCircuit
 import json
 
 def main():
