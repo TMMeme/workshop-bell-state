@@ -26,10 +26,10 @@ def main():
 
     #measure
     for i in range(n):
-        qc.measure(i)
+        qc.measure(i,i)
 
     #execute
-    backend=Aer.get_backend('qasm_simulator')
+    backend=Aer.get_backend("qasm_simulator")
     shots=10000
     job=execute(qc, backend=backend, shots=shots)
 
