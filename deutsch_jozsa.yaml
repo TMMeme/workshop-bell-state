@@ -1,16 +1,15 @@
-#Workflow API version
+# Workflow API version
 apiVersion: io.orquestra.workflow/1.0.0
-#prefix for workflow ID
+# Prefix for workflow ID
 name: deutsch-jozsa
 #nameの部分を大文字にしていたらSubmitできなかったので，すべて小文字で書いたほうがいい気がする
-#List components needed by workflow.
+# List components needed by workflow.
 imports:
 - name: deutsch-jozsa
   type: git
   parameters:
     repository: "git@github.com:TMMeme/workshop-bell-state.git"
-    branch: "master"
-  
+    branch: "main"
 
 # List the steps in the workflow
 steps:
@@ -18,12 +17,10 @@ steps:
   config:
     runtime:
       language: python3
-      imports: [deutsch-jozsa]
+      imports: [deutsch-jozsa] 
       parameters:
         file: deutsch-jozsa/steps/deutsch-jozsa.py
-        #ここに作成した量子テレポーテーションのpyファイルのパスを貼る
         function: main
-        #ここに関数を指定
   outputs:
   - name: results
     type: output
