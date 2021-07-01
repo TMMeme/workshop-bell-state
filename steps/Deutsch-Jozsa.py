@@ -3,30 +3,32 @@ import json
 
 def main():
     #Define registers and circuit
-    n=3
-    q=QuantumRegister(n+1)
-    c=ClassicalRegister(n+1)
+    
+    q=QuantumRegister(4)
+    c=ClassicalRegister(4)
     qc=QuantumCircuit(q,c)
 
     #Creating the superposition
-    for i in range(n):
-        qc.h(i)
+    qc.h(0)
+    qc.h(1)
+    qc.h(2)
     
     #Creating |-> state at ancilla
-    qc.x(n)
-    qc.h(n)
+    qc.x(3)
+    qc.h(3)
 
     #Creating Oracle
-    for i in range(n):
-        qc.cx(i,n)
+    qc.cx(0,3)
+    qc.cx(1,3)
+    qc.cx(2,3)
     
     #アダマールを入力量子ビットにかける
-    for i in range(n):
-        qc.h(i)
+    qc.h(0)
+    qc.h(1)
+    qc.h(2)
 
     #measure
-    for i in range(n):
-        qc.measure(i,i)
+    qc.measure(q,c)
 
     #execute
     backend=Aer.get_backend("qasm_simulator")
