@@ -9,7 +9,7 @@ imports:
   type: git
   parameters:
     repository: "git@github.com:TMMeme/workshop-bell-state.git"
-    branch: "main"
+    branch: "master"
   
 
 # List the steps in the workflow
