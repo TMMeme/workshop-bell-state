@@ -9,7 +9,6 @@ imports:
   type: git
   parameters:
     repository: "git@github.com:zapatacomputing/workshop-bell-state.git"
-    #自分で書いたworkflowを実行するときは，TMMemeと指定する
     branch: "main"
 - name: z-quantum-core
   type: git
