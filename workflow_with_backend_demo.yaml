@@ -38,8 +38,7 @@ steps:
   config:
     runtime:
       language: python3
-      #imports: [z-quantum-core, qe-qulacs, bell-state]
-      imports: [z-quantum-core, qe-forest, bell-state, qe-qiskit]
+      imports: [z-quantum-core, bell-state, qe-qiskit]
       parameters:
         file: bell-state/steps/orquestra_solution_demo.py
         function: main
@@ -51,6 +50,7 @@ steps:
       n_samples: 1024
       api_token: "a334d9575b60fd0510d5485f4f9c403ee4ae4908a33f10caf1ac5d91df3ce94b7db3672ea6a36afe743af35b72f21b6207e66f513e0c0b64a3cb3cedbf208ab6"
     type: specs
+  #input item for a step cannot have more than 2 attributesのエラーが出たら，backendspecsの下のmodule_nameとかを一個段落下げてないとかが原因の可能性大
   #IBMのウェブサイトから取得し、クオテーションの中に貼り付け
   #- backend_specs:
   #    module_name: qequlacs.simulator
