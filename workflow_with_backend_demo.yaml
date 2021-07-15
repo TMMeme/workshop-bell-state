@@ -8,7 +8,7 @@ imports:
 - name: bell-state
   type: git
   parameters:
-    repository: "git@github.com:zapatacomputing/workshop-bell-state.git"
+    repository: "git@github.com:TMMeme/workshop-bell-state.git"
     branch: "main"
 - name: z-quantum-core
   type: git
