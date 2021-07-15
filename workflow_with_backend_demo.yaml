@@ -8,26 +8,22 @@ imports:
 - name: bell-state
   type: git
   parameters:
-    repository:
-    "git@github.com:TMMeme/workshop-bell-state.git"
+    repository: "git@github.com:TMMeme/workshop-bell-state.git"
     branch: "main"
 - name: z-quantum-core
   type: git
   parameters:
-    repository:
-    "git@github.com:zapatacomputing/z-quantum-core.git"
+    repository: "git@github.com:zapatacomputing/z-quantum-core.git"
     branch: "master"
 - name: qe-qulacs
   type: git
   parameters:
-    repository:
-    "git@github.com:zapatacomputing/qe-qulacs.git"
+    repository: "git@github.com:zapatacomputing/qe-qulacs.git"
     branch: "master"
 - name: qe-forest
   type: git
   parameters:
-    repository:
-    "git@github.com:zapatacomputing/qe-forest.git"
+    repository: "git@github.com:zapatacomputing/qe-forest.git"
     branch: "master"
 
 steps:
