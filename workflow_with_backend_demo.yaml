@@ -57,7 +57,7 @@ steps:
   #module_name: qeforest.simulator
   #function_name: ForestSimulator
   #device_name: wavefunction-simulator
-  #type: specs
+    type: specs
   #APIを使用してIBMのマシンを使用する場合：
 
   outputs:
