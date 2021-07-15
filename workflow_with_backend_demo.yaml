@@ -10,6 +10,7 @@ imports:
   parameters:
     repository: "git@github.com:TMMeme/workshop-bell-state.git"
     branch: "main"
+    #repository: のあとになんか書くときその行から書き始めないといけない
 - name: z-quantum-core
   type: git
   parameters:
@@ -30,35 +31,28 @@ steps:
 - name: run-circuit
   config:
     runtime:
-      language:
-      python3
-      imports:
-      [z-quantum-core, qe-qulacs, bell-state]
+      language: python3
+      imports: [z-quantum-core, qe-qulacs, bell-state]
       # imports:[z-quantum-core, qe-forest, bell-state]
       parameters:
-        file:
-        bell-state/steps/orquestra_solution_demo.py
+        file: bell-state/steps/orquestra_solution_demo.py
         function: main
   inputs:
   - backend_specs:
-      module_name:
-      qequlacs.simulator
-      function_name:
-      QulacsSimulator
+      module_name: qequlacs.simulator
+      function_name: QulacsSimulator
   
     type: specs
   outputs:
-  - name:
-  output-distribution
+  - name: output-distribution
   #Pythonファイルで指定したsave_bitstring_distribution(distribution, "output-distribution.json")の部分で実際に付けた名前「output-distribution」を入力する
-    type:
-    bitstring-distribution
+    type: bitstring-distribution
     #そのデータの型指定を行う．ここではビット列分布が型なのでこれを入力する
 
 types:
--
-bitstring-distribution
+- bitstring-distribution
 - specs
+#多分step中に出てくるtypeは全部指定するっぽい
   
 
 
