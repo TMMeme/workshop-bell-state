@@ -46,11 +46,19 @@ steps:
   - backend_specs:
       module_name: qeqiskit.backend
       function_name: QiskitBackend
-      device_name: ibmq_athens
+      device_name: ibmq_lima
       n_samples: 1024
       api_token: "a334d9575b60fd0510d5485f4f9c403ee4ae4908a33f10caf1ac5d91df3ce94b7db3672ea6a36afe743af35b72f21b6207e66f513e0c0b64a3cb3cedbf208ab6"
     type: specs
-  #input item for a step cannot have more than 2 attributesのエラーが出たら，backendspecsの下のmodule_nameとかを一個段落下げてないとかが原因の可能性大
+  outputs:
+  - name: output-distribution
+    type: bitstring-distribution
+    
+types:
+- bitstring-distribution
+- specs
+
+#input item for a step cannot have more than 2 attributesのエラーが出たら，backendspecsの下のmodule_nameとかを一個段落下げてないとかが原因の可能性大
   #IBMのウェブサイトから取得し、クオテーションの中に貼り付け
   #- backend_specs:
   #    module_name: qequlacs.simulator
@@ -61,15 +69,10 @@ steps:
   #device_name: wavefunction-simulator
   #  type: specs
   #APIを使用してIBMのマシンを使用する場合：
-  outputs:
-  - name: output-distribution
-  #Pythonファイルで指定したsave_bitstring_distribution(distribution, "output-distribution.json")の部分で実際に付けた名前「output-distribution」を入力する
-    type: bitstring-distribution
-    #そのデータの型指定を行う．ここではビット列分布が型なのでこれを入力する
 
-types:
-- bitstring-distribution
-- specs
+ #Pythonファイルで指定したsave_bitstring_distribution(distribution, "output-distribution.json")の部分で実際に付けた名前「output-distribution」を入力する
+#そのデータの型指定を行う．ここではビット列分布が型なのでこれを入力する
+
 #多分step中に出てくるtypeは全部指定するっぽい
 
 #実行時間はシミュレータはForestもQeQulacsも大体1分
