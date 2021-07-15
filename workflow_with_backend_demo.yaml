@@ -27,6 +27,11 @@ imports:
   parameters:
     repository: "git@github.com:zapatacomputing/qe-forest.git"
     branch: "master"
+- name: qe-qiskit
+  type: git
+  parameters:
+    repository: "git@github.com:zapatacomputing/qe-qiskit.git"
+    branch: "master"
 
 steps:
 - name: run-circuit
@@ -34,7 +39,7 @@ steps:
     runtime:
       language: python3
       #imports: [z-quantum-core, qe-qulacs, bell-state]
-      imports: [z-quantum-core, qe-forest, bell-state]
+      imports: [z-quantum-core, qe-forest, bell-state, qe-qiskit]
       parameters:
         file: bell-state/steps/orquestra_solution_demo.py
         function: main
@@ -42,11 +47,24 @@ steps:
   #- backend_specs:
   #    module_name: qequlacs.simulator
   #    function_name: QulacsSimulator
+  #- backend_specs:
+      #module_name: qeforest.simulator
+      #function_name: ForestSimulator
+      #device_name: wavefunction-simulator
+    #type: specs
+  
+  #APIを使用してIBMのマシンを使用する場合：
   - backend_specs:
-      module_name: qeforest.simulator
-      function_name: ForestSimulator
-      device_name: wavefunction-simulator
-    type: specs
+    module_name: qeqiskit.backend
+    function_name: QiskitBackend
+    device_name: ibmq_quito
+    n_samples: 1024
+    api_token: "a334d9575b60fd0510d5485f4f9c403ee4ae4908a33f10caf1ac5d91df3ce94b7db3672ea6a36afe743af35b72f21b6207e66f513e0c0b64a3cb3cedbf208ab6" #IBMのウェブサイトから取得し、クオテーションの中に貼り付け
+
+
+
+
+
   outputs:
   - name: output-distribution
   #Pythonファイルで指定したsave_bitstring_distribution(distribution, "output-distribution.json")の部分で実際に付けた名前「output-distribution」を入力する
@@ -57,6 +75,8 @@ types:
 - bitstring-distribution
 - specs
 #多分step中に出てくるtypeは全部指定するっぽい
-  
+
+#実行時間はシミュレータはForestもQeQulacsも大体1分
+
 
 
