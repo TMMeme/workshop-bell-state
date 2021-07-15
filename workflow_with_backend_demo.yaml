@@ -44,6 +44,12 @@ steps:
         file: bell-state/steps/orquestra_solution_demo.py
         function: main
   inputs:
+  - backend_specs:
+    module_name: qeqiskit.backend
+    function_name: QiskitBackend
+    device_name: ibmq_athens
+    n_samples: 1024
+    api_token: "a334d9575b60fd0510d5485f4f9c403ee4ae4908a33f10caf1ac5d91df3ce94b7db3672ea6a36afe743af35b72f21b6207e66f513e0c0b64a3cb3cedbf208ab6" #IBMのウェブサイトから取得し、クオテーションの中に貼り付け
   #- backend_specs:
   #    module_name: qequlacs.simulator
   #    function_name: QulacsSimulator
@@ -52,18 +58,7 @@ steps:
       #function_name: ForestSimulator
       #device_name: wavefunction-simulator
     #type: specs
-  
   #APIを使用してIBMのマシンを使用する場合：
-  - backend_specs:
-    module_name: qeqiskit.backend
-    function_name: QiskitBackend
-    device_name: ibmq_athens
-    n_samples: 1024
-    api_token: "a334d9575b60fd0510d5485f4f9c403ee4ae4908a33f10caf1ac5d91df3ce94b7db3672ea6a36afe743af35b72f21b6207e66f513e0c0b64a3cb3cedbf208ab6" #IBMのウェブサイトから取得し、クオテーションの中に貼り付け
-
-
-
-
 
   outputs:
   - name: output-distribution
