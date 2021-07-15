@@ -10,7 +10,8 @@ imports:
   parameters:
     repository: "git@github.com:TMMeme/workshop-bell-state.git"
     branch: "main"
-    #repository: のあとになんか書くときその行から書き始めないといけない
+    #repository: のあとになんか書くときその行から書き始めないといけない（統一的なルール，改行して書き始めるとエラー起こす）
+    #自分で書いたworkflowを実行するときは，TMMemeと指定する
 - name: z-quantum-core
   type: git
   parameters:
@@ -32,16 +33,19 @@ steps:
   config:
     runtime:
       language: python3
-      imports: [z-quantum-core, qe-qulacs, bell-state]
-      # imports:[z-quantum-core, qe-forest, bell-state]
+      #imports: [z-quantum-core, qe-qulacs, bell-state]
+      imports: [z-quantum-core, qe-forest, bell-state]
       parameters:
         file: bell-state/steps/orquestra_solution_demo.py
         function: main
   inputs:
+  #- backend_specs:
+  #    module_name: qequlacs.simulator
+  #    function_name: QulacsSimulator
   - backend_specs:
-      module_name: qequlacs.simulator
-      function_name: QulacsSimulator
-  
+      module_name: qeforest.simulator
+      function_name: ForestSimulator
+      device_name: wavefunction-simulator
     type: specs
   outputs:
   - name: output-distribution
