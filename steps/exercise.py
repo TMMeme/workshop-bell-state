@@ -1,6 +1,5 @@
 from qiskit import execute, Aer, ClassicalRegister, QuantumCircuit, QuantumRegister
 import json
-#まじでいみが分からん
 
 def main():
     # Define registers and circuit
