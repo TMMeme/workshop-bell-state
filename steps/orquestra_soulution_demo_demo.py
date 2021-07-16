@@ -7,9 +7,11 @@ from zquantum.core.bitstring_distribution import save_bitstring_distribution
 import yaml
 
 def main(backend_specs):
-    circuit=QuantumCircuit(2,2)
-    circuit.h(0)
-    circuit.cx(0,1)
+    q=QuantumRegister(2)
+    c=ClassicalRegister(2)
+    circuit=QuantumCircuit(q,c)
+    circuit.h(q[0])
+    circuit.cnot(q[0],q[1])
 
     zap_circuit=circuits.import_from_qiskit(circuit)
 
