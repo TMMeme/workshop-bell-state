@@ -32,7 +32,7 @@ steps:
 - name: run-circuit
   config:
     runtime:
-      language: pythons3
+      language: python3
       imports: [z-quantum-core, bell-state, qe-qiskit]
       parameters:
         file: bell-state/steps/orquestra_solution_demo_demo.py
