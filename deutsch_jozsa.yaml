@@ -10,7 +10,6 @@ imports:
   parameters:
     repository: "git@github.com:TMMeme/workshop-bell-state.git"
     branch: "main"
-
 # List the steps in the workflow
 steps:
 - name: run-circuit
