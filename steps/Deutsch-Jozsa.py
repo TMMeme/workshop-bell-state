@@ -24,16 +24,20 @@ def main():
     qc.h(q[2])
     #measure
     qc.measure(q,c)
-    #execute
-    backend=Aer.get_backend("qasm_simulator")
-    shots=10000
-    job=execute(qc, backend=backend, shots=shots)
-    result=job.result()
-    counts=result.get_counts(qc)
-
+    result = execute(qc, Aer.get_backend("qasm_simulator"), shots=10000).result()
+    counts = result.get_counts(qc)
 
     with open("results.json", "w") as outfile:
         json.dump(counts, outfile)  
+    #execute
+    #backend=Aer.get_backend("qasm_simulator")
+    #shots=10000
+    #job=execute(qc, backend=backend, shots=shots)
+    #result=job.result()
+    #counts=result.get_counts(qc)
+
+
+    
 
 
 
