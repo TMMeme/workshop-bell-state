@@ -12,6 +12,7 @@ imports:
     branch: "main"
     #repository: のあとになんか書くときその行から書き始めないといけない（統一的なルール，改行して書き始めるとエラー起こす）
     #自分で書いたworkflowを実行するときは，TMMemeと指定する
+    #あとWorkflowを書くときはnameの前には-を付けないといけない
 - name: z-quantum-core
   type: git
   parameters:
