@@ -27,13 +27,7 @@ def main():
     counts = result.get_counts(qc)
 
     with open("results.json", "w") as outfile:
-        json.dump(counts, outfile)  
-    #execute
-    #backend=Aer.get_backend("qasm_simulator")
-    #shots=10000
-    #job=execute(qc, backend=backend, shots=shots)
-    #result=job.result()
-    #counts=result.get_counts(qc)
+        json.dump(counts, outfile)
 
 
     
