@@ -12,7 +12,7 @@ def main(backend_specs):
     circuit=QuantumCircuit(q,c)
     circuit.h(q[0])
     circuit.cnot(q[0],q[1])
-
+#qbitの指定をするときは，q[0]みたいなかんじでやんないといけないっぽい
     zap_circuit=circuits.import_from_qiskit(circuit)
 
     if isinstance(backend_specs, str):
