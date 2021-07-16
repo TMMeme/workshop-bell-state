@@ -3,10 +3,9 @@ import json
 
 def main():
     #Define registers and circuit
-    
-    q=QuantumRegister(4)
-    c=ClassicalRegister(4)
-    qc=QuantumCircuit(q,c)
+    q = QuantumRegister(4)
+    c = ClassicalRegister(4)
+    qc = QuantumCircuit(q, c)
     #Creating the superposition
     qc.h(q[0])
     qc.h(q[1])
@@ -15,9 +14,9 @@ def main():
     qc.x(q[3])
     qc.h(q[3])
     #Creating Oracle
-    qc.cx(q[0],q[3])
-    qc.cx(q[1],q[3])
-    qc.cx(q[2],q[3])
+    qc.cnot(q[0], q[3])
+    qc.cnot(q[1], q[3])
+    qc.cnot(q[2], q[3])
     #アダマールを入力量子ビットにかける
     qc.h(q[0])
     qc.h(q[1])
