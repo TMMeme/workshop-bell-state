@@ -7,34 +7,27 @@ def main():
     q=QuantumRegister(4)
     c=ClassicalRegister(4)
     qc=QuantumCircuit(q,c)
-
     #Creating the superposition
-    qc.h(0)
-    qc.h(1)
-    qc.h(2)
-    
+    qc.h(q[0])
+    qc.h(q[1])
+    qc.h(q[2])
     #Creating |-> state at ancilla
-    qc.x(3)
-    qc.h(3)
-
+    qc.x(q[3])
+    qc.h(q[3])
     #Creating Oracle
-    qc.cx(0,3)
-    qc.cx(1,3)
-    qc.cx(2,3)
-    
+    qc.cx(q[0],q[3])
+    qc.cx(q[1],q[3])
+    qc.cx(q[2],q[3])
     #アダマールを入力量子ビットにかける
-    qc.h(0)
-    qc.h(1)
-    qc.h(2)
-
+    qc.h(q[0])
+    qc.h(q[1])
+    qc.h(q[2])
     #measure
     qc.measure(q,c)
-
     #execute
     backend=Aer.get_backend("qasm_simulator")
     shots=10000
     job=execute(qc, backend=backend, shots=shots)
-
     result=job.result()
     counts=result.get_counts(qc)
 
