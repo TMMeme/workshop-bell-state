@@ -7,38 +7,41 @@ import yaml
 
 def main(backend_specs):
     #ドイチジョサアルゴリズムを設計
-    #q = QuantumRegister(4)
-    #c = ClassicalRegister(4)
-    #qc = QuantumCircuit(q, c)
-    #qc.h(q[0])
-    #qc.h(q[1])
-    #qc.h(q[2])
-    #qc.x(q[3])
-    #qc.h(q[3])
-    #qc.cnot(q[0], q[3])
-    #qc.cnot(q[1], q[3])
-    #qc.cnot(q[2], q[3])
-    #qc.h(q[0])
-    #qc.h(q[1])
-    #qc.h(q[2])
+    n=4
+    q = QuantumRegister(n)
+    c = ClassicalRegister(n)
+    qc = QuantumCircuit(q, c)
+    
+    for i in range(n-1):
+        qc.h(q[i])
+
+    qc.x(q[n-1])
+    qc.h(q[n-1])
+
+    for j in range(n-1):
+        qc.cnot(q[j], q[n-1])
+
+    for k in range(n-1):
+        qc.h(q[k])
     #グローバーアルゴリズム設計
-    q=QuantumRegister(2)
-    c=ClassicalRegister(2)
-    qc=QuantumCircuit(q,c)
-    qc.h(q[0])
-    qc.h(q[1])
-    qc.cz(q[0], q[1])
-    qc.h(q[0])
-    qc.h(q[1])
-    qc.x(q[0])
-    qc.x(q[1])
-    qc.cz(q[0], q[1])
-    qc.x(q[0])
-    qc.x(q[1])
-    for i in range(2):
-        qc.h(i)
+
+    #q=QuantumRegister(2)
+    #c=ClassicalRegister(2)
+    #qc=QuantumCircuit(q,c)
     #qc.h(q[0])
-    #qc.h(q[1])の代わりを試す
+    #qc.h(q[1])
+    #qc.cz(q[0], q[1])
+    #qc.h(q[0])
+    #qc.h(q[1])
+    #qc.x(q[0])
+    #qc.x(q[1])
+    #qc.cz(q[0], q[1])
+    #qc.x(q[0])
+    #qc.x(q[1])
+    #for i in range(2):
+    #    qc.h(i)
+    #qc.h(q[0])
+    #qc.h(q[1])の代わりにFor_in_range関数使っても大丈夫
 
     zap_circuit=circuits.import_from_qiskit(qc)
 
