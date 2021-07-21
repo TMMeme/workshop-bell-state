@@ -35,8 +35,10 @@ def main(backend_specs):
     qc.cz(q[0], q[1])
     qc.x(q[0])
     qc.x(q[1])
-    qc.h(q[0])
-    qc.h(q[1])
+    for i in range(2):
+        qc.h(i)
+    #qc.h(q[0])
+    #qc.h(q[1])の代わりを試す
 
     zap_circuit=circuits.import_from_qiskit(qc)
 
