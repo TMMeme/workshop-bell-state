@@ -1,4 +1,4 @@
-from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit, circuit
+from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit
 from yaml.loader import SafeLoader
 from zquantum.core import circuits
 from zquantum.core.utils import create_object
@@ -23,6 +23,6 @@ def main(backend_specs):
     backend=create_object(backend_specs_dict)
 
 
-    distribution=get_bitstring_distribution(backend)
+    distribution=backend.get_bitstring_distribution(zap_circuit)
     save_bitstring_distribution(distribution, "output-distribution.json")
     
