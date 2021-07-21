@@ -41,7 +41,7 @@ steps:
   - backend_specs:
       module_name: qeqiskit.backend
       function_name: QiskitBackend
-      device_name: ibmq_bogota
+      device_name: ibmq_belem
       n_samples: 1024
       api_token: "a334d9575b60fd0510d5485f4f9c403ee4ae4908a33f10caf1ac5d91df3ce94b7db3672ea6a36afe743af35b72f21b6207e66f513e0c0b64a3cb3cedbf208ab6"
     type: specs
