@@ -6,15 +6,26 @@ from zquantum.core.bitstring_distribution import save_bitstring_distribution
 import yaml
 
 def main(backend_specs):
-    q=QuantumRegister(3)
-    c=ClassicalRegister(3)
-    circuit=QuantumCircuit(q, c)
+    q = QuantumRegister(4)
+    c = ClassicalRegister(4)
+    qc = QuantumCircuit(q, c)
+ 
+    qc.h(q[0])
+    qc.h(q[1])
+    qc.h(q[2])
 
-    circuit.h(q[0])
-    circuit.cnot(q[0], q[1])
-    circuit.cnot(q[0], q[2])
+    qc.x(q[3])
+    qc.h(q[3])
+    qc.cnot(q[0], q[3])
+    qc.cnot(q[1], q[3])
+    qc.cnot(q[2], q[3])
+    
+    
+    qc.h(q[0])
+    qc.h(q[1])
+    qc.h(q[2])
 
-    zap_circuit=circuits.import_from_qiskit(circuit)
+    zap_circuit=circuits.import_from_qiskit(qc)
 
     if isinstance(backend_specs, str):
         backend_specs_dict=yaml.load(backend_specs, Loader=yaml.SafeLoader)
