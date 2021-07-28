@@ -14,4 +14,10 @@ def main(backend_specs):
     qc.cnot(q[0], q[1])
     qc.cnot(q[0], q[2])
     
-    zap_circuit=create_object.import_from_qiskit(qc)
+    zap_circuit=circuits.import_from_qiskit(qc)
+
+    if isinstance(backend_specs, str):
+        backend_specs_dict=yaml.load(backend_specs, Loader=yaml.SafeLoader)
+    else:
+        backend_specs_dict=backend_specs
+    backend=create_object(backend_specs_dict)
