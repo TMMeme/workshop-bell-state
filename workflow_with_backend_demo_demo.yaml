@@ -38,7 +38,7 @@ steps:
         file: bell-state/steps/orquestra_solution_demo_demo.py
         function: main
   inputs:
-  - backend_specks:
+  - backend_specs:
       module_name: qequlacs.simulator
       function_name: QulacsSimulator
     type: specs
