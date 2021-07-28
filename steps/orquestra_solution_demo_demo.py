@@ -8,4 +8,10 @@ def main(backend_specs):
     n=3
     q=QuantumRegister(n)
     c=ClassicalRegister(n)
-    circuit=QuantumCircuit(q, c)
+    qc=QuantumCircuit(q, c)
+
+    qc.h(q[0])
+    qc.cnot(q[0], q[1])
+    qc.cnot(q[0], q[2])
+    
+    zap_circuit=create_object.import_from_qiskit(qc)
