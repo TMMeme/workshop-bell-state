@@ -7,4 +7,45 @@ imports:
   parameters:
     repository: "git@github.com:TMMeme/workshop-bell-state.git"
     branch: "main"
-- name: 
+- name: z-quantum-core
+  type: git
+  parameters:
+    repository: "git@github.com:zapatacomputing/z-quantum-core.git"
+    branch: "master"
+- name: qe-qulacs
+  type: git
+  parameters:
+    repository: "git@github.com:zapatacomputing/qe-qulacs.git"
+    branch: "master"
+- name: qe-forest
+  type: git
+  parameters:
+    repository: "git@github.com:zapatacomputing/qe-forest.git"
+    branch: "master"
+- name: qe-qiskit
+  type: git
+  parameters:
+    repository: "git@github.com:zapatacomputing/qe-qiskit.git"
+    branch: "master"
+
+steps:
+- name: run-circuit
+  config:
+    runtime:
+      language: python3
+      imports: [z-quantum-core, bell-state, qe-qulacs]
+      parameters:
+        file: bell-state/steps/orquestra_solution_demo_demo.py
+        function: main
+  inputs:
+  - backend_specks:
+      module_name: qequlacs.simulator
+      function_name: QulacsSimulator
+    type: specs
+  outputs:
+  - name: output-distribution
+    type: bitstring-distribution
+
+types:
+- bitstring-distribution
+- specs
