@@ -7,48 +7,4 @@ imports:
   parameters:
     repository: "git@github.com:TMMeme/workshop-bell-state.git"
     branch: "main"
-- name: z-quantum-core
-  type: git
-  parameters:
-    repository: "git@github.com:zapatacomputing/z-quantum-core.git"
-    branch: "master"
-- name: qe-qulacs
-  type: git
-  parameters:
-    repository: "git@github.com:zapatacomputing/qe-qulacs.git"
-    branch: "master"
-- name: qe-forest
-  type: git
-  parameters:
-    repository: "git@github.com:zapatacomputing/qe-forest.git"
-    branch: "master"
-- name: qe-qiskit
-  type: git
-  parameters:
-    repository: "git@github.com:zapatacomputing/qe-qiskit.git"
-    branch: "master"
-
-steps:
-- name: run-circuit
-  config:
-    runtime:
-      language: python3
-      imports: [z-quantum-core, bell-state, qe-qiskit]
-      parameters:
-        file: bell-state/steps/orquestra_solution_demo_demo.py
-        function: main
-  inputs:
-  - backend_specs:
-      module_name: qeqiskit.backend
-      function_name: QiskitBackend
-      device_name: ibmq_belem
-      n_samples: 1024
-      api_token: "a334d9575b60fd0510d5485f4f9c403ee4ae4908a33f10caf1ac5d91df3ce94b7db3672ea6a36afe743af35b72f21b6207e66f513e0c0b64a3cb3cedbf208ab6"
-    type: specs
-  outputs:
-  - name: output-distribution
-    type: bitstring-distribution
-
-types:
-- bitstring-distribution
-- specs
+- name: 
